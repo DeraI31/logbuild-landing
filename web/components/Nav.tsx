@@ -30,7 +30,7 @@ export default function Nav() {
             alt="LogBuild"
             width={915}
             height={202}
-            className="h-[72px] w-auto"
+            className="h-[50px] w-auto"
             priority
           />
         </Link>
