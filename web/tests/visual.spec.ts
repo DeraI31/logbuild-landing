@@ -92,7 +92,7 @@ test.describe("Landing Page — Visual & Functional", () => {
     await expect(playBtn).toBeVisible();
   });
 
-  test("features section has 6 features", async ({ page }) => {
+  test("features section has 5 features", async ({ page }) => {
     const features = page.locator("#features");
     await features.scrollIntoViewIfNeeded();
     await expect(features.locator("text=Site report automation").first()).toBeVisible();
@@ -100,7 +100,6 @@ test.describe("Landing Page — Visual & Functional", () => {
     await expect(features.getByRole("heading", { name: "Auto-assignment to trades" })).toBeVisible();
     await expect(features.getByRole("heading", { name: "Branded report templates" })).toBeVisible();
     await expect(features.getByRole("heading", { name: "Report log spreadsheet" })).toBeVisible();
-    await expect(features.getByRole("heading", { name: "Multi-site dashboard" })).toBeVisible();
   });
 
   test("footer has contact email", async ({ page }) => {

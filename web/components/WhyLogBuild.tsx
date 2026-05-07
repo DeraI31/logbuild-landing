@@ -59,16 +59,16 @@ export default function WhyLogBuild() {
                 delay: 0.1 + i * 0.1,
                 ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
               }}
-              className="flex gap-5"
+              className="flex gap-5 group cursor-default"
             >
-              <div className="w-12 h-12 rounded-xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-12 h-12 rounded-xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-lime/20 group-hover:border-brand-lime/40 group-hover:scale-110 transition-all duration-250">
                 {icon}
               </div>
               <div>
-                <h3 className="font-heading text-base text-brand-white tracking-tight mb-2">
+                <h3 className="font-heading text-base text-brand-white tracking-tight mb-2 group-hover:text-brand-lime transition-colors duration-200">
                   {title}
                 </h3>
-                <p className="text-sm text-brand-white/55 leading-relaxed">
+                <p className="text-sm text-brand-white/55 leading-relaxed group-hover:text-brand-white/70 transition-colors duration-200">
                   {desc}
                 </p>
               </div>

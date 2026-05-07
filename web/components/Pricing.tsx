@@ -98,17 +98,17 @@ export default function Pricing() {
                 delay: 0.1 + i * 0.1,
                 ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
               }}
-              className={`rounded-xl flex flex-col ${
+              className={`rounded-xl flex flex-col transition-all duration-300 ${
                 highlighted
-                  ? "bg-brand-green text-brand-white shadow-[0_24px_64px_rgba(45,74,30,0.35)] relative overflow-hidden"
-                  : "bg-brand-surface border border-brand-green/8"
+                  ? "bg-brand-green text-brand-white shadow-[0_32px_80px_rgba(45,74,30,0.45),0_0_0_1px_rgba(124,179,66,0.2)] relative overflow-hidden scale-[1.02]"
+                  : "bg-brand-surface border border-brand-green/8 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(45,74,30,0.1)]"
               }`}
             >
-              {highlighted && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-brand-lime rounded-t-xl" />
-              )}
 
-              <div className="p-7 pb-5">
+              {highlighted && (
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_40%_at_50%_0%,rgba(124,179,66,0.12),transparent)] pointer-events-none" />
+              )}
+              <div className="p-7 pb-5 relative">
                 <p
                   className={`font-heading text-xs tracking-widest uppercase mb-4 ${
                     highlighted ? "text-brand-lime" : "text-brand-text-muted"
@@ -147,7 +147,7 @@ export default function Pricing() {
                 }`}
               />
 
-              <ul className="p-7 space-y-3 flex-1">
+              <ul className="p-7 space-y-3 flex-1 relative">
                 {features.map(({ text, available, soon }) => (
                   <li key={text} className="flex items-start gap-3">
                     <span
@@ -185,13 +185,13 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <div className="px-7 pb-7">
+              <div className="px-7 pb-7 relative">
                 <Link
                   href="/enquiry"
-                  className={`block w-full text-center font-heading text-xs tracking-wider py-3.5 rounded transition-colors duration-200 cursor-pointer ${
+                  className={`block w-full text-center font-heading text-xs tracking-wider py-3.5 rounded transition-all duration-200 cursor-pointer active:scale-[0.98] ${
                     highlighted
-                      ? "bg-brand-lime text-brand-green-dark font-bold hover:bg-brand-lime-hover"
-                      : "bg-brand-green/10 text-brand-green hover:bg-brand-green/15 border border-brand-green/15"
+                      ? "bg-brand-lime text-brand-green-dark font-bold hover:bg-brand-lime-hover shadow-[0_4px_20px_rgba(124,179,66,0.35)] hover:shadow-[0_8px_32px_rgba(124,179,66,0.55)]"
+                      : "bg-brand-green/10 text-brand-green hover:bg-brand-green/15 border border-brand-green/15 hover:-translate-y-0.5"
                   }`}
                 >
                   {cta}

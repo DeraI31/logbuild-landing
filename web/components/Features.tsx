@@ -64,7 +64,7 @@ export default function Features() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-          className="mb-3 bg-brand-green rounded-2xl p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-8 md:gap-12"
+          className="mb-3 bg-brand-green rounded-2xl p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-8 md:gap-12 hover:shadow-[0_40px_100px_rgba(45,74,30,0.5)] transition-shadow duration-500"
         >
           <div className="w-16 h-16 rounded-xl bg-brand-lime/15 border border-brand-lime/25 flex items-center justify-center shrink-0">
             <ReportIcon />
@@ -98,7 +98,7 @@ export default function Features() {
                 delay: 0.2 + i * 0.08,
                 ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
               }}
-              className="bg-brand-white border border-brand-green/8 rounded-xl p-7"
+              className="bg-brand-white border border-brand-green/8 rounded-xl p-7 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(45,74,30,0.12)] transition-all duration-300"
             >
               <div className="w-11 h-11 mb-5 flex items-center justify-center rounded-lg bg-brand-surface shrink-0">
                 {icon}
@@ -113,25 +113,6 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Full-width bottom feature: multi-site dashboard */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: 0.52, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-          className="mt-3 bg-brand-white border border-brand-green/8 rounded-xl p-7 flex flex-col md:flex-row md:items-center gap-6"
-        >
-          <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-brand-surface shrink-0">
-            <DashboardIcon />
-          </div>
-          <div className="flex-1">
-            <h3 className="font-heading text-sm text-brand-text tracking-tight mb-2">
-              Multi-site dashboard
-            </h3>
-            <p className="text-sm text-brand-text-muted leading-relaxed max-w-[60ch]">
-              Monitor activity, defects and report status across every active project from a single view.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

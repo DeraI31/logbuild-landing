@@ -66,16 +66,19 @@ export default function DemoSection() {
               className="absolute inset-0 flex flex-col items-center justify-center bg-brand-green-dark/60 backdrop-blur-sm group cursor-pointer transition-colors duration-300 hover:bg-brand-green-dark/40"
               aria-label="Play demo video"
             >
-              <div className="w-20 h-20 rounded-full bg-brand-lime flex items-center justify-center shadow-[0_8px_32px_rgba(124,179,66,0.4)] group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="#1e3213"
-                  className="translate-x-0.5"
-                >
-                  <path d="M5 3l14 9-14 9V3z" />
-                </svg>
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-brand-lime/30 animate-pulse-ring" />
+                <div className="w-20 h-20 rounded-full bg-brand-lime flex items-center justify-center shadow-[0_8px_32px_rgba(124,179,66,0.45)] group-hover:scale-110 transition-transform duration-300 relative">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="#1e3213"
+                    className="translate-x-0.5"
+                  >
+                    <path d="M5 3l14 9-14 9V3z" />
+                  </svg>
+                </div>
               </div>
               <p className="mt-4 font-heading text-xs text-brand-white/70 tracking-widest uppercase">
                 Watch Demo

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -27,8 +26,9 @@ export default function Hero() {
         }}
       />
 
-      {/* Radial glow */}
+      {/* Radial glows */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-brand-lime/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-brand-lime/3 blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full py-20 lg:py-0">
         <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center">
@@ -36,12 +36,13 @@ export default function Hero() {
           {/* Left: Content */}
           <div className="max-w-2xl">
             <motion.div {...fadeUp(0)} className="mb-10">
-              <Image src="/Logbuild_logo_transparent.png" alt="LogBuild" width={915} height={202} className="h-32 w-auto" priority />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/Logbuild_logo.png" alt="LogBuild" className="h-36 w-auto" />
             </motion.div>
 
             <motion.h1
               {...fadeUp(0.1)}
-              className="font-heading text-4xl md:text-5xl lg:text-[3.75rem] text-brand-white leading-[1.08] tracking-tight mb-7"
+              className="font-heading text-4xl md:text-5xl lg:text-[4.25rem] text-brand-white leading-[1.05] tracking-tight mb-7"
             >
               Site reports,
               <br />
@@ -50,7 +51,7 @@ export default function Hero() {
 
             <motion.p
               {...fadeUp(0.2)}
-              className="text-lg md:text-xl text-brand-white/65 leading-relaxed max-w-[48ch] mb-10"
+              className="text-lg md:text-xl text-brand-white/65 leading-relaxed max-w-[46ch] mb-10"
             >
               AI-powered daily reports for construction site managers.
               No apps. No training. Just email.
@@ -62,14 +63,14 @@ export default function Hero() {
             >
               <a
                 href="#demo"
-                className="inline-flex items-center justify-center gap-2.5 font-heading text-sm tracking-wider px-7 py-4 border-2 border-brand-lime/60 text-brand-lime hover:border-brand-lime hover:bg-brand-lime/10 rounded transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 font-heading text-sm tracking-wider px-7 py-4 border-2 border-brand-lime/60 text-brand-lime hover:border-brand-lime hover:bg-brand-lime/10 rounded transition-all duration-200 cursor-pointer active:scale-[0.98]"
               >
                 <PlayIcon />
                 Watch Demo
               </a>
               <Link
                 href="/enquiry"
-                className="inline-flex items-center justify-center font-heading text-sm tracking-wider px-7 py-4 bg-brand-lime text-brand-green-dark font-bold rounded hover:bg-brand-lime-hover transition-colors duration-200 cursor-pointer active:scale-[0.98]"
+                className="inline-flex items-center justify-center font-heading text-sm tracking-wider px-7 py-4 bg-brand-lime text-brand-green-dark font-bold rounded hover:bg-brand-lime-hover transition-all duration-200 cursor-pointer active:scale-[0.98] shadow-[0_4px_24px_rgba(124,179,66,0.3)] hover:shadow-[0_8px_40px_rgba(124,179,66,0.5)]"
               >
                 Book a Demo
               </Link>
@@ -86,7 +87,7 @@ export default function Hero() {
               ].map(({ stat, label }, i) => (
                 <div key={label} className={`flex items-center gap-10 ${i > 0 ? "border-l border-brand-white/10 pl-10" : ""}`}>
                   <div>
-                    <p className="font-heading text-xl text-brand-lime">{stat}</p>
+                    <p className="font-heading text-2xl text-brand-lime">{stat}</p>
                     <p className="text-[11px] text-brand-white/40 mt-1 tracking-wider uppercase">{label}</p>
                   </div>
                 </div>
@@ -94,20 +95,22 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Visual accent */}
+          {/* Right: Floating visual accent */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.35, ease }}
+            initial={{ opacity: 0, scale: 0.92, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.35, ease }}
             className="hidden lg:block"
           >
-            <ReportVisual />
+            <div className="animate-float">
+              <ReportVisual />
+            </div>
           </motion.div>
         </div>
       </div>
 
       {/* Bottom gradient into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-brand-surface to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-brand-surface to-transparent" />
     </section>
   );
 }
@@ -123,7 +126,7 @@ function PlayIcon() {
 function ReportVisual() {
   return (
     <div className="w-[340px] relative">
-      <div className="bg-brand-green-dark border border-brand-lime/20 rounded-lg p-6 shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
+      <div className="bg-brand-green-dark border border-brand-lime/20 rounded-xl p-6 shadow-[0_32px_80px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(124,179,66,0.08)]">
         <div className="flex items-center justify-between mb-5">
           <div>
             <p className="font-heading text-[10px] text-brand-lime/70 tracking-widest uppercase">Daily Site Report</p>
@@ -159,11 +162,11 @@ function ReportVisual() {
         </div>
       </div>
 
-      <div className="absolute -top-4 -right-6 bg-brand-lime text-brand-green-dark rounded px-3 py-1.5 shadow-lg">
+      <div className="absolute -top-4 -right-6 bg-brand-lime text-brand-green-dark rounded-lg px-3 py-1.5 shadow-[0_8px_24px_rgba(124,179,66,0.4)]">
         <p className="font-heading text-[10px] tracking-wider">via email</p>
       </div>
 
-      <div className="absolute -bottom-4 -left-6 bg-brand-green-dark border border-brand-lime/20 rounded px-3 py-2 shadow-lg">
+      <div className="absolute -bottom-4 -left-6 bg-brand-green-dark border border-brand-lime/20 rounded-lg px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.3)]">
         <p className="text-[10px] text-brand-white/60">PM notified</p>
         <p className="font-heading text-[11px] text-brand-white mt-0.5">hello@log-build.co.uk</p>
       </div>

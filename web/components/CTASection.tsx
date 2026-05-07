@@ -15,15 +15,18 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-          className="bg-brand-green rounded-2xl px-8 md:px-16 py-16 md:py-20 text-center relative overflow-hidden"
+          className="bg-brand-green rounded-2xl px-8 md:px-16 py-16 md:py-20 text-center relative overflow-hidden shadow-[0_40px_120px_rgba(45,74,30,0.4)]"
         >
-          {/* Background texture */}
+          {/* Ambient glow from top */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(124,179,66,0.18),transparent)] pointer-events-none" />
+          {/* Top edge highlight */}
+          <div className="absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-brand-lime/40 to-transparent pointer-events-none" />
+          {/* Subtle dot grid */}
           <div
-            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            className="absolute inset-0 opacity-[0.035] pointer-events-none"
             style={{
-              backgroundImage:
-                "radial-gradient(circle at 1px 1px, #7cb342 1px, transparent 0)",
-              backgroundSize: "28px 28px",
+              backgroundImage: "radial-gradient(circle at 1px 1px, #7cb342 1px, transparent 0)",
+              backgroundSize: "32px 32px",
             }}
           />
 
@@ -42,13 +45,13 @@ export default function CTASection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/enquiry"
-                className="inline-flex items-center justify-center font-heading text-sm tracking-wider px-8 py-4 bg-brand-lime text-brand-green-dark font-bold rounded-lg hover:bg-brand-lime-hover transition-colors duration-200 cursor-pointer active:scale-[0.98]"
+                className="inline-flex items-center justify-center font-heading text-sm tracking-wider px-8 py-4 bg-brand-lime text-brand-green-dark font-bold rounded-lg hover:bg-brand-lime-hover transition-all duration-200 cursor-pointer active:scale-[0.98] shadow-[0_4px_28px_rgba(124,179,66,0.4)] hover:shadow-[0_8px_48px_rgba(124,179,66,0.6)]"
               >
                 Book a Demo
               </Link>
               <a
                 href="mailto:hello@log-build.co.uk"
-                className="inline-flex items-center justify-center font-heading text-sm tracking-wider px-8 py-4 border border-brand-white/20 text-brand-white/80 rounded-lg hover:border-brand-white/40 hover:text-brand-white transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center font-heading text-sm tracking-wider px-8 py-4 border border-brand-white/25 text-brand-white/80 rounded-lg hover:border-brand-white/50 hover:text-brand-white hover:bg-brand-white/5 transition-all duration-200 cursor-pointer active:scale-[0.98]"
               >
                 Email us instead
               </a>

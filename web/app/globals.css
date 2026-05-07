@@ -26,9 +26,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background-color: #7cb342;
+  color: #1e3213;
+}
+
+:focus-visible {
+  outline: 2px solid #7cb342;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);    opacity: 0.6; }
+  100% { transform: scale(1.75); opacity: 0;   }
+}
+
 @layer utilities {
   .font-heading {
     font-family: var(--font-space-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+  .animate-pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
 
