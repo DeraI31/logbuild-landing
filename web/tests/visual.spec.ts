@@ -59,19 +59,21 @@ test.describe("Landing Page — Visual & Functional", () => {
     await expect(cta).toBeAttached();
   });
 
-  test("pricing section has all 3 tiers", async ({ page }) => {
+  test("pricing section has all 4 tiers", async ({ page }) => {
     await page.locator("#pricing").scrollIntoViewIfNeeded();
     const pricing = page.locator("#pricing");
+    await expect(pricing.locator("text=Solo").first()).toBeVisible();
     await expect(pricing.locator("text=Starter").first()).toBeVisible();
     await expect(pricing.locator("text=Professional").first()).toBeVisible();
-    await expect(pricing.locator("text=Enterprise")).toBeVisible();
+    await expect(pricing.locator("text=Enterprise").first()).toBeVisible();
   });
 
   test("pricing shows correct monthly prices", async ({ page }) => {
     await page.locator("#pricing").scrollIntoViewIfNeeded();
-    await expect(page.locator("text=£300")).toBeVisible();
-    await expect(page.locator("text=£500")).toBeVisible();
-    await expect(page.locator("text=£800")).toBeVisible();
+    await expect(page.locator("text=£99")).toBeVisible();
+    await expect(page.locator("text=£249")).toBeVisible();
+    await expect(page.locator("text=£449")).toBeVisible();
+    await expect(page.locator("text=£749")).toBeVisible();
   });
 
   test("COMING SOON badges visible on Professional tier", async ({ page }) => {
